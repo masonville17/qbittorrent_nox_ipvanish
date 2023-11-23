@@ -9,6 +9,7 @@ This Docker setup builds and starts a qbittorrent-nox service behind a split-tun
 - **OpenVPN with IpVanish**: Secure and private connection using OpenVPN and IpVanish as the VPN service provider. Simply change the hardcoded download URI to use a different ovpn-compliant provider's config bundle.
 
 ## Configuration
+be sure to fill out your ```pass``` file, with the first line containing your IpVanish username and second line containing your IpVanish password.
 
 You can customize the setup by filling out `exclude_countries` with any 2-letter country codes you'd like to remove from the downloaded/expanded `configs.zip` file. This allows for more control over the VPN configuration and server selection.
 

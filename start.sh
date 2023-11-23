@@ -44,4 +44,5 @@ while true; do
     echo "vpn infos: PID: $vpn_pid, $vpn_infos... qbnox info: $qbnoxinfos... ipinfos: $ipinfos... Sleeping 10m..."
     sleep 600
 done
-wait
+trap "kill $vpn_pid" EXIT
+

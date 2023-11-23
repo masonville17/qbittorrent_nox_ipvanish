@@ -5,6 +5,8 @@ RUN apt-get update
 RUN apt-get install -y \
     qbittorrent-nox \
     openvpn \
+    sudo \
+    procps \
     ca-certificates \
     vim \
     iproute2 \

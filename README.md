@@ -34,3 +34,5 @@ This project owes its existence to the outstanding work of the qBittorrent team 
 
 ## Licensing and Usage
 This project is available for non-commercial use and is built upon open-source foundations. It inherits the permissions and restrictions of its base technologies. We encourage users to honor the licenses and community guidelines of the qBittorrent and qBittorrent-nox projects when utilizing this software.
+
+thank you.

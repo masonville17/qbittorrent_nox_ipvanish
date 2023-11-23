@@ -41,7 +41,7 @@ while true; do
     vpn_infos=$(ps -f -p $vpn_pid)
     qbnoxinfos=$(qbittorrent-nox)
     ipinfos=$(ip a)
-    echo ""vpn infos: PID: $vpn_pid, $vpn_infos... qbnox info: $qbnoxinfos... ipinfos: $ipinfos... Sleeping 10m..."
+    echo "vpn infos: PID: $vpn_pid, $vpn_infos... qbnox info: $qbnoxinfos... ipinfos: $ipinfos... Sleeping 10m..."
     sleep 600
 done
 wait

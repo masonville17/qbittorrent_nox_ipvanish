@@ -35,14 +35,15 @@ else
     exit 1
 fi
 
-echo "starting configuring qbnox"
+echo "starting qbnox"
+qbittorrent-nox &
+qbnox_pid=$!
 
 while true; do
     vpn_infos=$(ps -f -p $vpn_pid)
-    qbnoxinfos=$(qbittorrent-nox)
+    qbnoxinfos=$(ps -f -p $qbnox_pid)
     ipinfos=$(ip a)
     echo "vpn infos: PID: $vpn_pid, $vpn_infos... qbnox info: $qbnoxinfos... ipinfos: $ipinfos... Sleeping 10m..."
     sleep 600
 done
-trap "kill $vpn_pid" EXIT
-
+trap "kill $vpn_pid; kill $qbnox_pid" EXIT

@@ -1,2 +1,5 @@
 ./pass
 pass
+downloads/*
+qBittorrent/*/*/*
+.config/*

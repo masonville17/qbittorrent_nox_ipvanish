@@ -15,7 +15,8 @@ RUN apt-get install -y \
     net-tools && apt-get clean && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY start.sh /app/
-
+COPY pass /app/
+COPY exclude_countries /app/
 RUN chmod +x /app/start.sh
 EXPOSE 8080
 

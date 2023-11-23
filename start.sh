@@ -15,6 +15,10 @@ done
 
 OVPN_FILE=$(find . -name "*.ovpn" | shuf -n 1)
 echo "Today, we'll connect to $OVPN_FILE"
+
+#remove no longer supported openvpn parameter.
+sed -i '/keysize/d' "${OVPN_FILE}"
+
 openvpn --config "${OVPN_FILE}" --auth-user-pass pass &
 
 sleep 5

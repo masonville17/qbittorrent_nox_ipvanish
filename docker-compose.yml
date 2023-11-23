@@ -4,6 +4,10 @@ services:
   qbnox_plus:
     build: .
     container_name: qbnox_plus
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun:/dev/net/tun"      
     ports:
       - "8080:8080"
     volumes:

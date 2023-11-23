@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  qbnox_plus:
+    build: .
+    container_name: qbnox_plus
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config/qBittorrent/:/root/.config/qBittorrent/
+      - ./downloads/:/root/Downloads/
+volumes:
+  config:
+  downloads:

@@ -1,6 +1,7 @@
 #!/bin/bash
 VPN_INTERFACE="tun0"
 OPENVPN_CONFIGS_ZIP_URL="https://configs.ipvanish.com/configs/configs.zip"
+ORIGINAL_EXTERNAL_IP=$(curl -s https://ipinfo.io/ip)
 
 # Local ports to exclude from VPN
 echo "Adding iptable rules"
@@ -29,7 +30,7 @@ vpn_pid=$!
 # Wait for VPN to establish connection and check if connection is established
 sleep 20
 if ip a show tun0 up > /dev/null 2>&1; then
-    echo "VPN is connected."
+    echo "VPN is connected."z
 else
     echo "VPN connection failed."
     exit 1
@@ -41,9 +42,9 @@ qbnox_pid=$!
 
 while true; do
     vpn_infos=$(ps -f -p $vpn_pid)
-    qbnoxinfos=$(ps -f -p $qbnox_pid)
-    ipinfos=$(ip a)
-    echo "vpn infos: PID: $vpn_pid, $vpn_infos... qbnox info: $qbnoxinfos... ipinfos: $ipinfos... Sleeping 10m..."
+    ip_addr=$(curl -s https://ipinfo.io/ip)
+    ip_addr_infos="You are using $ip_addr as your external IP address (originally $ORIGINAL_EXTERNAL_IP)..."    
+    echo "vpn infos: PID: $vpn_pid, vpn_infos... i2p info: $i2pinfos... ipinfos: $ipinfos... Sleeping 10m..."
     sleep 600
 done
-trap "kill $vpn_pid; kill $qbnox_pid" EXIT
+trap "kill $vpn_pid" EXIT
